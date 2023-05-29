@@ -1,14 +1,20 @@
 import React from "react";
 import styles from "./sidebar.module.css";
-import { Header } from "../index";
+import cn from "classnames";
+import { SidebarProps } from "./sidebar.props";
+import { Card, Header } from "../index";
 import EmptyAvatar from "../../../helpers/icons/empty_avatar.svg";
 
-export const Sidebar = () => {
+export const Sidebar = ({
+  avatar,
+  className,
+  ...props
+}: SidebarProps): JSX.Element => {
   return (
-    <div className={styles.sidebar}>
-      <Header avatar={EmptyAvatar} sidebar></Header>
-      <div className={styles.search}></div>
-      <div className={styles.card}></div>
+    <div className={cn(styles.sidebar, className)} {...props}>
+      <Header avatar={avatar} sidebar></Header>
+      {/* <div className={styles.search}></div> */}
+      <Card avatar={EmptyAvatar} name="Настя"></Card>
     </div>
   );
 };

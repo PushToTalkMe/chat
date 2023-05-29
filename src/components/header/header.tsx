@@ -9,6 +9,7 @@ import { ReactComponent as Option } from "../../../helpers/icons/option.svg";
 
 export const Header = ({
   avatar,
+  name,
   sidebar,
   className,
   ...props
@@ -21,7 +22,7 @@ export const Header = ({
       {...props}
     >
       <Avatar src={avatar} alt="Аватар" />
-      {sidebar ? null : <span className={styles.name}>Имя чата</span>}
+      {sidebar ? null : <span className={styles.name}>{name}</span>}
       {sidebar ? null : <Glass className={styles.glass} />}
       {sidebar ? <NewChat className={styles.newChat} /> : null}
       <Option className={styles.option} />
