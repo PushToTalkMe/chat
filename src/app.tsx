@@ -7,10 +7,6 @@ export function App() {
     <div className={styles.app}>
       <Sidebar avatar={EmptyAvatar}></Sidebar>
       <Chat avatar={EmptyAvatar} name={"Имя чата"}></Chat>
-      {/* <div className={styles.main}>
-        <div className={styles.header2}></div>
-        <div className={styles.message}></div>
-      </div> */}
     </div>
   );
 }

@@ -14,7 +14,12 @@ export const Sidebar = ({
     <div className={cn(styles.sidebar, className)} {...props}>
       <Header avatar={avatar} sidebar></Header>
       {/* <div className={styles.search}></div> */}
-      <Card avatar={EmptyAvatar} name="Настя"></Card>
+      <Card
+        avatar={EmptyAvatar}
+        name="Настя"
+        lastMessage="Пожалуйста"
+        dateLastMessage="14.08.2023"
+      />
     </div>
   );
 };
