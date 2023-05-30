@@ -1,0 +1,14 @@
+.app {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border-left: 15px solid #101a20;
+  border-right: 15px solid #101a20;
+
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1440px) {
+  .app {
+    border: none;
+  }
+}
