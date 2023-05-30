@@ -14,6 +14,17 @@ export const History = ({
       <Message
         text="Привет, как дела asd as d asd asd asd asd asdsa dasd asd  "
         time="12:32"
+        reciever
+      />
+      <Message
+        text="Привет, как дела asd as d asd asd asd asd asdsa dasd asd  "
+        time="12:32"
+        reciever
+      />
+      <Message
+        text="Привет, как дела asd asdas dasd asd asd asd asd asd s asd asd asd asdas asd sa"
+        time="12:34"
+        sender
       />
       <Message
         text="Привет, как дела asd asdas dasd asd asd asd asd asd s asd asd asd asdas asd sa"

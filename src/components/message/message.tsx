@@ -9,12 +9,14 @@ export const Message = ({
   time,
   className,
   sender,
+  reciever,
   ...props
 }: MessageProps): JSX.Element => {
   return (
     <div
       className={cn(styles.message, className, {
         [styles.sender]: sender === true,
+        [styles.reciever]: reciever === true,
       })}
       {...props}
     >

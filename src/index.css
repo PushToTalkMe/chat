@@ -3,11 +3,12 @@ body {
   color: var(--white);
   background: var(--black);
   font-family: "Noto Sans", sans-serif;
+  /* overflow: hidden; */
 }
 
 body {
   margin: 0;
-  padding: 1% 8%;
+  padding: 0px 8%;
 }
 
 a {
@@ -23,6 +24,7 @@ a {
   --black: #111b21;
   --white: #dbedef;
   --black-light: #202c33;
+  --grey: #2a3942;
   --green: #005c4b;
 }
 

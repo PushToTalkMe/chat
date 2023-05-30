@@ -5,4 +5,5 @@ export interface MessageProps
   text: string;
   time: string;
   sender?: true | false;
+  reciever?: true | false;
 }

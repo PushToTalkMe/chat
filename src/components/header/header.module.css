@@ -4,7 +4,7 @@
   grid-template-columns: 48px 1fr 48px 48px;
   align-items: center;
   padding: 10px 16px;
-  border-left: 1px solid white;
+  border-left: 1px solid var(--grey);
 }
 
 .sidebar {

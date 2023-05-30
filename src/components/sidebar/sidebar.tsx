@@ -13,7 +13,6 @@ export const Sidebar = ({
   return (
     <div className={cn(styles.sidebar, className)} {...props}>
       <Header avatar={avatar} sidebar></Header>
-      {/* <div className={styles.search}></div> */}
       <Card
         avatar={EmptyAvatar}
         name="Настя"
