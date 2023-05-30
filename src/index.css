@@ -23,13 +23,7 @@ a {
   --black: #111b21;
   --white: #dbedef;
   --black-light: #202c33;
-  --primary: #7653fc;
-  --primary-hover: #6344df;
-  --red: #fc836d;
-  --red-hard: #de0000;
-  --green: #1dc47e;
-  --green-light: #c8f8e4;
-  --font-family: "Noto Sans", sans-serif;
+  --green: #005c4b;
 }
 
 @media screen and (max-width: 1440px) {

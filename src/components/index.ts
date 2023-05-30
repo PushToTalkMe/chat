@@ -6,3 +6,4 @@ export * from "./chat/chat";
 export * from "./htag/htag";
 export * from "./span/span";
 export * from "./history/history";
+export * from "./message/message";

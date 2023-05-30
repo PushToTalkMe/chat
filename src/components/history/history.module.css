@@ -1,6 +1,9 @@
 .history {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   height: 810px;
   background-image: url(./cover.jpg);
-  background-size: 30%;
+  background-size: 100%;
   border-left: 1px solid white;
 }
