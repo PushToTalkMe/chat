@@ -1,0 +1,27 @@
+.header {
+  background: var(--black-light);
+  display: grid;
+  grid-template-columns: 48px 1fr 48px 48px;
+  align-items: center;
+  padding: 10px 16px;
+  border-left: 1px solid white;
+}
+
+.sidebar {
+  grid-template-columns: 1fr 48px 48px;
+}
+
+.glass {
+  cursor: pointer;
+  justify-self: center;
+}
+
+.newChat {
+  cursor: pointer;
+  justify-self: center;
+}
+
+.option {
+  cursor: pointer;
+  justify-self: center;
+}

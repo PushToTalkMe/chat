@@ -1,0 +1,12 @@
+.card {
+  display: grid;
+  grid-template-columns: 60px auto;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+}
