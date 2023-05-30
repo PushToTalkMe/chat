@@ -2,6 +2,7 @@ import React from "react";
 import { AvatarProps } from "./avatar.props";
 import styles from "./avatar.module.css";
 import cn from "classnames";
+import { ActiveContext } from "../../context";
 
 export const Avatar = ({
   src,
@@ -10,6 +11,7 @@ export const Avatar = ({
   className,
   ...props
 }: AvatarProps): JSX.Element => {
+  const value = React.useContext(ActiveContext);
   return (
     <img
       src={src}
@@ -18,7 +20,8 @@ export const Avatar = ({
         [styles.small]: size === "small",
         [styles.medium]: size === "medium",
       })}
+      onClick={() => value?.setActive(true)}
       {...props}
-    ></img>
+    />
   );
 };
