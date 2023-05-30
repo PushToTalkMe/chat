@@ -1,8 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./auth.module.css";
 import cn from "classnames";
 import { AuthProps } from "./auth.props";
 import { Input, Button } from "..";
+import { IUser } from "../../../interfaces/user.interface";
 
 export const Auth = ({
   active,
@@ -10,6 +11,10 @@ export const Auth = ({
   className,
   ...props
 }: AuthProps): JSX.Element => {
+  const [user, setUser] = useState<IUser>({
+    idInstance: "",
+    apiTokenInstance: "",
+  });
   return (
     <div
       className={cn(styles.popup, {
@@ -22,9 +27,39 @@ export const Auth = ({
         {...props}
         onClick={(e) => e.stopPropagation()}
       >
-        <Input placeholder="Введите idInstance" id="id"></Input>
-        <Input placeholder="Введите apiTokenInstance" id="token"></Input>
-        <Button className={styles.login}>Войти</Button>
+        <Input
+          placeholder="Введите IdInstance"
+          id="id"
+          onChange={(e) => {
+            const target = e.target as HTMLTextAreaElement;
+            setUser({ ...user, idInstance: target.value });
+          }}
+        />
+        <Input
+          placeholder="Введите ApiTokenInstance"
+          id="token"
+          onChange={(e) => {
+            const target = e.target as HTMLTextAreaElement;
+            setUser({ ...user, apiTokenInstance: target.value });
+          }}
+        />
+        <Button
+          className={styles.login}
+          onClick={() => {
+            fetch(
+              `https://api.green-api.com/waInstance${user.idInstance}/getSettings/${user.apiTokenInstance}`
+            )
+              .then((response) => response.json())
+              .then((result) => {
+                setActive(false);
+                localStorage.setItem("user", JSON.stringify(user));
+                console.log(result);
+              })
+              .catch((error) => console.log(error));
+          }}
+        >
+          Войти
+        </Button>
       </div>
     </div>
   );

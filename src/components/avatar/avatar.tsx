@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import { AvatarProps } from "./avatar.props";
 import styles from "./avatar.module.css";
 import cn from "classnames";
@@ -11,7 +11,7 @@ export const Avatar = ({
   className,
   ...props
 }: AvatarProps): JSX.Element => {
-  const value = React.useContext(ActiveContext);
+  const value = useContext(ActiveContext);
   return (
     <img
       src={src}

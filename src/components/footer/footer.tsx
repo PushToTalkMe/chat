@@ -8,7 +8,7 @@ import { ReactComponent as SendIcon } from "../../../helpers/icons/send.svg";
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
   return (
     <div className={cn(styles.footer, className)} {...props}>
-      <Input />
+      <Input placeholder="Введите сообщение" />
       <SendIcon className={styles.send} />
     </div>
   );

@@ -22,13 +22,16 @@ export const Header = ({
       {...props}
     >
       <Avatar src={avatar} alt="Аватар" />
-      {sidebar ? null : (
-        <Htag tag="h4" className={styles.name}>
-          {name}
-        </Htag>
+      {!sidebar ? (
+        <>
+          <Htag tag="h4" className={styles.name}>
+            {name}
+          </Htag>
+          <Glass className={styles.glass} />
+        </>
+      ) : (
+        <NewChat className={styles.newChat} />
       )}
-      {sidebar ? null : <Glass className={styles.glass} />}
-      {sidebar ? <NewChat className={styles.newChat} /> : null}
       <Option className={styles.option} />
     </div>
   );
