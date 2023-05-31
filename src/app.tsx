@@ -11,7 +11,7 @@ export function App() {
   useEffect(() => {
     const userJson = localStorage.getItem("user");
     userJson === null && setActive(true);
-  });
+  }, []);
 
   return (
     <div className={styles.app}>

@@ -1,4 +1,4 @@
 import React from "react";
-import { AuthProps } from "./components/auth/auth.props";
+import { ActiveProps } from "../interfaces/active.interface";
 
-export const ActiveContext = React.createContext<AuthProps | null>(null);
+export const ActiveContext = React.createContext<ActiveProps | null>(null);

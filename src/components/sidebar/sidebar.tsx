@@ -15,7 +15,7 @@ export const Sidebar = ({
       <Header avatar={avatar} sidebar></Header>
       <Card
         avatar={EmptyAvatar}
-        name="Настя"
+        name="79993604361"
         lastMessage="Пожалуйста"
         dateLastMessage="14.08.2023"
       />

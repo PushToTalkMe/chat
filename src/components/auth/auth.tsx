@@ -15,6 +15,7 @@ export const Auth = ({
     idInstance: "",
     apiTokenInstance: "",
   });
+
   return (
     <div
       className={cn(styles.popup, {
@@ -50,10 +51,9 @@ export const Auth = ({
               `https://api.green-api.com/waInstance${user.idInstance}/getSettings/${user.apiTokenInstance}`
             )
               .then((response) => response.json())
-              .then((result) => {
+              .then(() => {
                 setActive(false);
                 localStorage.setItem("user", JSON.stringify(user));
-                console.log(result);
               })
               .catch((error) => console.log(error));
           }}
