@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./history.module.css";
 import cn from "classnames";
 import { HistoryProps } from "./history.props";
 import { Message } from "..";
+import { useTypedSelector } from "../../../hooks/use_typed_selector";
 
-export const History = ({
-  messages,
-  setMessages,
-  className,
-  ...props
-}: HistoryProps): JSX.Element => {
+//Обратить внимание на useEffect
+//Приходится брать значения из localstorage в store, чтобы не было лишнего ререндера, соотвественно лишнего сообщения
+//Надо дорабоатть useEffect и добавить setInterval
+
+export const History = ({ className, ...props }: HistoryProps): JSX.Element => {
+  const messages = useTypedSelector((state) => state.messagesReducer);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     let receiptId = 0;
     const userJson = localStorage.getItem("user");
@@ -29,12 +33,7 @@ export const History = ({
               sender: result.body.senderData.sender,
               senderName: result.body.senderData.senderName,
             };
-            setMessages([...messages, message]);
-            localStorage.setItem(
-              "messages",
-              JSON.stringify([...messages, message])
-            );
-            console.log("set");
+            dispatch({ type: "ADD_MESSAGE_RECEIVED", payload: message });
           }
           fetch(
             `https://api.green-api.com/waInstance${user.idInstance}/deleteNotification/${user.apiTokenInstance}/${receiptId}`,
@@ -44,23 +43,16 @@ export const History = ({
           );
         }
       });
-  });
+  }, []);
 
   return (
     <div className={cn(styles.history, className)} {...props}>
-      {messages.map((message, ind) => {
-        if (ind > 0) {
-          return message.type === "incomingMessageReceived" ? (
-            <Message
-              key={message.id}
-              text={message.text}
-              time="12:32"
-              reciever
-            />
-          ) : (
-            <Message key={message.id} text={message.text} time="12:32" sender />
-          );
-        }
+      {messages.map((message) => {
+        return message.type === "incomingMessageReceived" ? (
+          <Message key={message.id} text={message.text} time="12:32" reciever />
+        ) : (
+          <Message key={message.id} text={message.text} time="12:32" sender />
+        );
       })}
     </div>
   );

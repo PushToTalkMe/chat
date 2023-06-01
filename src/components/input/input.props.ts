@@ -4,4 +4,6 @@ export interface InputProps
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLInputElement>,
     HTMLInputElement
-  > {}
+  > {
+  value: string;
+}
