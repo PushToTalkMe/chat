@@ -13,11 +13,12 @@ import { useTypedSelector } from "../../../hooks/use_typed_selector";
 export const History = ({ className, ...props }: HistoryProps): JSX.Element => {
   const messages = useTypedSelector((state) => state.messagesReducer);
   const dispatch = useDispatch();
+  const userJson = localStorage.getItem("user");
+  const user = userJson !== null && JSON.parse(userJson);
 
-  useEffect(() => {
+  const getMessage = () => {
     let receiptId = 0;
-    const userJson = localStorage.getItem("user");
-    const user = userJson !== null && JSON.parse(userJson);
+    console.log('hi')
     fetch(
       `https://api.green-api.com/waInstance${user.idInstance}/receiveNotification/${user.apiTokenInstance}`
     )
@@ -33,6 +34,7 @@ export const History = ({ className, ...props }: HistoryProps): JSX.Element => {
               sender: result.body.senderData.sender,
               senderName: result.body.senderData.senderName,
             };
+
             dispatch({ type: "ADD_MESSAGE_RECEIVED", payload: message });
           }
           fetch(
@@ -43,6 +45,13 @@ export const History = ({ className, ...props }: HistoryProps): JSX.Element => {
           );
         }
       });
+  }
+
+  const timer = setInterval(getMessage, 5000)
+
+  useEffect(() => {
+    timer;
+    return () => clearInterval(timer);
   }, []);
 
   return (
