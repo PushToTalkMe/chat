@@ -6,13 +6,12 @@ import { useEffect } from "react";
 
 export const Chat = ({
   avatar,
-  name,
   className,
   ...props
 }: ChatProps): JSX.Element => {
   return (
     <div className={cn(styles.chat, className)} {...props}>
-      <Header avatar={avatar} name={name}></Header>
+      <Header avatar={avatar}></Header>
       <History></History>
       <Footer></Footer>
     </div>

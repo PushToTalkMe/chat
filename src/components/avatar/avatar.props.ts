@@ -6,6 +6,7 @@ export interface AvatarProps
     HTMLImageElement
   > {
   src: string;
+  hidden?: true | false;
   alt: string;
   size?: "small" | "medium";
 }

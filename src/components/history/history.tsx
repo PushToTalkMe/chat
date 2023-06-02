@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef} from "react";
 import { useDispatch } from "react-redux";
 import styles from "./history.module.css";
 import cn from "classnames";
 import { HistoryProps } from "./history.props";
 import { Message } from "..";
-import { useTypedSelector } from "../../../hooks/use_typed_selector";
-
-//Обратить внимание на useEffect
-//Приходится брать значения из localstorage в store, чтобы не было лишнего ререндера, соотвественно лишнего сообщения
-//Надо дорабоатть useEffect и добавить setInterval
+import { useTypedSelector } from "../../../hooks/use_typed_selector"; 
 
 export const History = ({ className, ...props }: HistoryProps): JSX.Element => {
   const messages = useTypedSelector((state) => state.messagesReducer);
   const dispatch = useDispatch();
   const userJson = localStorage.getItem("user");
   const user = userJson !== null && JSON.parse(userJson);
-
   const getMessage = () => {
     let receiptId = 0;
-    console.log('hi')
     fetch(
       `https://api.green-api.com/waInstance${user.idInstance}/receiveNotification/${user.apiTokenInstance}`
     )
@@ -47,11 +41,12 @@ export const History = ({ className, ...props }: HistoryProps): JSX.Element => {
       });
   }
 
-  const timer = setInterval(getMessage, 5000)
+  const timer = setInterval(getMessage, 5000);
 
   useEffect(() => {
     timer;
     return () => clearInterval(timer);
+    
   }, []);
 
   return (

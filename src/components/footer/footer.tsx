@@ -5,8 +5,10 @@ import { FooterProps } from "./footer.props";
 import { Input } from "..";
 import { ReactComponent as SendIcon } from "../../../helpers/icons/send.svg";
 import { useDispatch } from "react-redux";
+import { useTypedSelector } from "../../../hooks/use_typed_selector";
 
 export const Footer = ({ className }: FooterProps): JSX.Element => {
+  const abonent = useTypedSelector(state => state.abonentReducer)
   const [text, setText] = useState("");
   const userJson = localStorage.getItem("user");
   const user = userJson !== null && JSON.parse(userJson);
@@ -22,7 +24,7 @@ export const Footer = ({ className }: FooterProps): JSX.Element => {
         },
         method: "POST",
         body: JSON.stringify({
-          chatId: "79993604361@c.us",
+          chatId: `${abonent.number}@c.us`,
           message: `${text}`,
         }),
       }
@@ -47,7 +49,7 @@ export const Footer = ({ className }: FooterProps): JSX.Element => {
       onSubmit={(e) => sendMessage(e)}
     >
       <Input
-        placeholder="Введите сообщение"
+        placeholder="Введите сообщение..."
         value={text}
         onChange={(e) => {
           const target = e.target as HTMLTextAreaElement;

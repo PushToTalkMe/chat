@@ -18,14 +18,16 @@ export const messagesReducer = (
 ) => {
   switch (action.type) {
     case ADD_MESSAGE_RECEIVED:
-      state = [...messages, action.payload];
+      if (!state.find(message => message.id === action.payload.id)) {
+        state = [...state, action.payload];
+      }
       localStorage.setItem("messages", JSON.stringify(state));
-      console.log(state);
       return state;
     case ADD_MESSAGE_SENDER:
-      state = [...state, action.payload];
+      if (!state.find(message => message.id === action.payload.id)) {
+        state = [...state, action.payload];
+      }
       localStorage.setItem("messages", JSON.stringify(state));
-      console.log(state);
       return state;
     default:
       return state;

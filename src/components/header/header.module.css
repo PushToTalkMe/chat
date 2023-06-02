@@ -1,14 +1,14 @@
 .header {
   background: var(--black-light);
   display: grid;
-  grid-template-columns: 48px 1fr 48px 48px;
+  grid-template-columns: auto;
   align-items: center;
   padding: 10px 16px;
   border-left: 1px solid var(--grey);
 }
 
 .sidebar {
-  grid-template-columns: 1fr 48px 48px;
+  grid-template-columns: 1fr 48px;
 }
 
 .glass {

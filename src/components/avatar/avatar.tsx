@@ -8,6 +8,7 @@ export const Avatar = ({
   src,
   alt,
   size = "small",
+  hidden,
   className,
   ...props
 }: AvatarProps): JSX.Element => {
@@ -19,6 +20,7 @@ export const Avatar = ({
       className={cn(styles.avatar, className, {
         [styles.small]: size === "small",
         [styles.medium]: size === "medium",
+        [styles.hidden]: hidden === true,
       })}
       onClick={() => value?.setActive(true)}
       {...props}

@@ -3,7 +3,6 @@ import styles from "./sidebar.module.css";
 import cn from "classnames";
 import { SidebarProps } from "./sidebar.props";
 import { Card, Header } from "../index";
-import EmptyAvatar from "../../../helpers/icons/empty_avatar.svg";
 
 export const Sidebar = ({
   avatar,
@@ -13,12 +12,12 @@ export const Sidebar = ({
   return (
     <div className={cn(styles.sidebar, className)} {...props}>
       <Header avatar={avatar} sidebar></Header>
-      <Card
+      {/* <Card
         avatar={EmptyAvatar}
         name="79993604361"
-        lastMessage="Пожалуйста"
+        lastMessage="hПожалуйста"
         dateLastMessage="14.08.2023"
-      />
+      /> */}
     </div>
   );
 };

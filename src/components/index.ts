@@ -11,3 +11,4 @@ export * from "./footer/footer";
 export * from "./input/input";
 export * from "./button/button";
 export * from "./auth/auth";
+export * from './abonent/abonent'
