@@ -1,0 +1,26 @@
+.message {
+  position: relative;
+  max-width: 70%;
+  padding: 12px;
+  border-radius: 10px;
+  bottom: 0;
+}
+
+.sender {
+  align-self: flex-end;
+  margin: 0px 15px 5px 0px;
+  background-color: var(--green);
+}
+
+.reciever {
+  align-self: start;
+  background-color: var(--black-light);
+  margin: 0px 0px 5px 15px;
+}
+
+.time {
+  position: absolute;
+  font-size: 12px;
+  bottom: -3px;
+  right: 5px;
+}
