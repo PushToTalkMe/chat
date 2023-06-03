@@ -1,7 +1,7 @@
 .history {
   display: flex;
   flex-direction: column;
-  align-items: end; 
+  justify-content: flex-end;
   height: 87.7vh;
   width: 100%;
   background-image: url(../../../helpers/imgs/cover.jpg);

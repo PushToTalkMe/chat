@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./auth.module.css";
 import cn from "classnames";
 import { AuthProps } from "./auth.props";
@@ -15,6 +16,8 @@ export const Auth = ({
     idInstance: "",
     apiTokenInstance: "",
   });
+
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -55,9 +58,9 @@ export const Auth = ({
               .then((response) => response.json())
               .then(() => {
                 setActive(false);
-                localStorage.setItem("user", JSON.stringify(user));
+                dispatch({type: 'ADD_USER', payload: user})
               })
-              .catch((error) => console.log(error));
+              .catch((error) => alert(error));
           }}
         >
           Войти
