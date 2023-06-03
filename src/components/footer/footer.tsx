@@ -7,6 +7,7 @@ import { ReactComponent as SendIcon } from "../../../helpers/icons/send.svg";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../../../hooks/use_typed_selector";
 import {format} from 'date-fns'
+import {nanoid} from 'nanoid'
 
 export const Footer = ({ className }: FooterProps): JSX.Element => {
   const abonent = useTypedSelector(state => state.abonentReducer)
@@ -17,6 +18,17 @@ export const Footer = ({ className }: FooterProps): JSX.Element => {
 
   const sendMessage = (e: any) => {
     e.preventDefault();
+    const currentTime = format(new Date(Date.now()), 'hh:mm');
+    dispatch({
+      type: "ADD_MESSAGE_SENDER",
+      payload: {
+        type: "outgoingMessageReceived",
+        text: text,
+        id: nanoid(),
+        time: currentTime
+      },
+    });
+    setText("");
     if (user.idInstance !== undefined) {
     fetch(
       `https://api.green-api.com/waInstance${user.idInstance}/sendMessage/${user.apiTokenInstance}`,
@@ -33,17 +45,7 @@ export const Footer = ({ className }: FooterProps): JSX.Element => {
     )
       .then((response) => response.json())
       .then((result) => {
-        const currentTime = format(new Date(Date.now()), 'hh:mm');
-        dispatch({
-          type: "ADD_MESSAGE_SENDER",
-          payload: {
-            type: "outgoingMessageReceived",
-            text: text,
-            id: result.idMessage,
-            time: currentTime
-          },
-        });
-        setText("");
+        return result
       })
     } else {
       alert('Сначала войдите под своими реквизитами: IdInstance и ApiToken')
