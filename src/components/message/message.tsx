@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./message.module.css";
 import cn from "classnames";
 import { MessageProps } from "./message.props";

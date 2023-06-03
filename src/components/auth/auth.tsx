@@ -31,6 +31,7 @@ export const Auth = ({
         <Input
           placeholder="Введите IdInstance"
           id="id"
+          value={user.idInstance}
           onChange={(e) => {
             const target = e.target as HTMLTextAreaElement;
             setUser({ ...user, idInstance: target.value });
@@ -39,6 +40,7 @@ export const Auth = ({
         <Input
           placeholder="Введите ApiTokenInstance"
           id="token"
+          value={user.apiTokenInstance}
           onChange={(e) => {
             const target = e.target as HTMLTextAreaElement;
             setUser({ ...user, apiTokenInstance: target.value });

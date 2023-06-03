@@ -1,4 +1,4 @@
-import { useEffect, useRef} from "react";
+import { useEffect} from "react";
 import { useDispatch } from "react-redux";
 import styles from "./history.module.css";
 import cn from "classnames";

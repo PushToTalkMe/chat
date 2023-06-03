@@ -14,7 +14,7 @@ export const Footer = ({ className }: FooterProps): JSX.Element => {
   const user = userJson !== null && JSON.parse(userJson);
   const dispatch = useDispatch();
 
-  const sendMessage = (e) => {
+  const sendMessage = (e: any) => {
     e.preventDefault();
     fetch(
       `https://api.green-api.com/waInstance${user.idInstance}/sendMessage/${user.apiTokenInstance}`,

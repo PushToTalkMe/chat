@@ -1,8 +1,7 @@
-import React from "react";
 import styles from "./sidebar.module.css";
 import cn from "classnames";
 import { SidebarProps } from "./sidebar.props";
-import { Card, Header } from "../index";
+import { Header } from "../index";
 
 export const Sidebar = ({
   avatar,

@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import styles from "./header.module.css";
 import cn from "classnames";
 import { HeaderProps } from "./header.props";
 import { Avatar, Htag } from "../index";
-import { ReactComponent as Glass } from "../../../helpers/icons/glass.svg";
+// import { ReactComponent as Glass } from "../../../helpers/icons/glass.svg";
 import { ReactComponent as NewChat } from "../../../helpers/icons/add.svg";
-import { ReactComponent as Option } from "../../../helpers/icons/option.svg";
+// import { ReactComponent as Option } from "../../../helpers/icons/option.svg";
 import { ActiveContext } from "../../context";
 import { useTypedSelector } from "../../../hooks/use_typed_selector";
 

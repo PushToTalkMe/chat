@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./abonent.module.css";
 import cn from "classnames";
-import { AuthProps } from "./abonent.props";
+import { AbonentProps } from "./abonent.props";
 import { Input, Button } from "..";
 import {useDispatch} from 'react-redux'
 
@@ -10,7 +10,7 @@ export const Abonent = ({
   setAbonentActive,
   className,
   ...props
-}: AuthProps): JSX.Element => {
+}: AbonentProps): JSX.Element => {
   const [abonent, setAbonent] = useState({
     number: "",
   });
@@ -31,6 +31,7 @@ export const Abonent = ({
         <Input
           placeholder="Введите номер телефона получателя (начиная с 7)"
           id="id"
+          value={abonent.number}
           onChange={(e) => {
             const target = e.target as HTMLTextAreaElement;
             setAbonent({ ...abonent, number: target.value });
